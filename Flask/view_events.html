@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>View Events</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <style>
+        .table-container {
+            margin: 20px auto;
+            max-width: 800px;
+        }
+        .table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        .table th, .table td {
+            padding: 12px;
+            text-align: left;
+            border: 1px solid #ddd;
+        }
+        .btn {
+            padding: 6px 12px;
+            font-size: 14px;
+            cursor: pointer;
+        }
+        .btn-success {
+            background-color: #28a745;
+            color: white;
+            border: none;
+        }
+        .btn-danger {
+            background-color: #dc3545;
+            color: white;
+            border: none;
+        }
+    </style>
+</head>
+<body>
+    <div class="table-container">
+        <h1>Event List</h1>
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th>Event Name</th>
+                    <th>Date</th>
+                    <th>Start Time</th> <!-- Added Start Time Column -->
+                    <th>End Time</th>   <!-- Added End Time Column -->
+                    <th>Room</th>
+                    <th>Status</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for event in events %}
+                <tr>
+                    <td>{{ event.get('eventName', 'N/A') }}</td>
+                    <td>{{ event.get('eventDate', 'Not set') }}</td>
+                    <td>{{ event.get('startTime', 'Not set') }}</td> <!-- Start Time Data -->
+                    <td>{{ event.get('endTime', 'Not set') }}</td>   <!-- End Time Data -->
+                    <td>{{ event.get('roomName', 'Not assigned') }}</td>
+                    <td>{{ event.get('bookingStatus', 'Unknown') }}</td>
+                    <td>
+                        {% if session.get('role') in ['super_admin', 'approval_admin'] and event.get('bookingStatus') == 'Pending' %}
+                            <form action="{{ url_for('approve_event', event_id=event.get('id')) }}" method="post" style="display:inline;">
+                                <input type="submit" class="btn btn-success" value="Approve">
+                            </form>
+                            <form action="{{ url_for('reject_event', event_id=event.get('id')) }}" method="post" style="display:inline;">
+                                <input type="submit" class="btn btn-danger" value="Reject">
+                            </form>
+                        {% else %}
+                            <span>{{ event.get('bookingStatus') }}</span>
+                        {% endif %}
+                    </td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+</body>
+</html>

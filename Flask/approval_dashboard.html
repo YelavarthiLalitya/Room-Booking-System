@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Approval Dashboard</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+</head>
+<body>
+    <h1>Approval Dashboard</h1>
+    <h2>Pending Events</h2>
+    {% if pending_events %}
+        <table>
+            <thead>
+                <tr>
+                    <th>Event Name</th>
+                    <th>Description</th>
+                    <th>Start Time</th>
+                    <th>End Time</th>
+                    <th>Expected Attendance</th>
+                    <th>Room</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for event in pending_events %}
+                    <tr>
+                        <td>{{ event.name }}</td>
+                        <td>{{ event.description }}</td>
+                        <td>{{ event.start_time }}</td>
+                        <td>{{ event.end_time }}</td>
+                        <td>{{ event.expected_attendance }}</td>
+                        <td>{{ event.room }}</td>
+                        <td>
+                            <a href="{{ url_for('approve_event', event_id=event.id) }}" class="button approve">Approve</a>
+                            <form action="{{ url_for('reject_event', event_id=event.id) }}" method="POST" style="display:inline;">
+                                <button type="submit" class="button reject">Reject</button>
+                            </form>
+                        </td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    {% else %}
+        <p>No pending events to display.</p>
+    {% endif %}
+    <a href="{{ url_for('dashboard') }}">Return to Dashboard</a>
+</body>
+</html>
