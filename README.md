@@ -3,14 +3,6 @@ This guide provides instructions to set up, run, and deploy a Java-based applica
 
 ---
 
-## Running the Java Code (Terminal Version)
-The terminal-based version of the application has no additional dependencies. To run:
-1. Ensure the code folder is in the correct path.
-2. Compile all the Java files.
-3. Run the application by executing the `Main.java` file.
-
----
-
 ## Running the Maven-Based Application
 The main application is built as a Maven Project and uses Spring Boot as its framework.
 
