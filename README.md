@@ -29,4 +29,82 @@ The main application is built as a Maven Project and uses Spring Boot as its fra
 ---
 
 ## Project Directory Structure
-.vscode/ src/ └── main/ └── java/ └── com/ └── eventmanagement/ ├── controller/ │ ├── EventController.java │ ├── RoomController.java │ └── UserController.java ├── model/ │ ├── Event.java │ ├── Manage.java │ ├── Role.java │ ├── RoomInfo.java │ └── User.java ├── repository/ │ ├── EventRepository.java │ ├── RoomRepository.java │ └── UserRepository.java ├── service/ │ ├── EventService.java │ ├── EventServiceImpl.java │ ├── RoomService.java │ ├── RoomServiceImpl.java │ ├── UserService.java │ └── UserServiceImpl.java ├── utils/ │ └── JwtTokenUtils.java └── Main.java resources/ └── application.properties target/ Pom.xml
+.vscode/
+src/
+└── main/
+    └── java/
+        └── com/
+            └── eventmanagement/
+                ├── controller/
+                │   ├── EventController.java
+                │   ├── RoomController.java
+                │   └── UserController.java
+                ├── model/
+                │   ├── Event.java
+                │   ├── Manage.java
+                │   ├── Role.java
+                │   ├── RoomInfo.java
+                │   └── User.java
+                ├── repository/
+                │   ├── EventRepository.java
+                │   ├── RoomRepository.java
+                │   └── UserRepository.java
+                ├── service/
+                │   ├── EventService.java
+                │   ├── EventServiceImpl.java
+                │   ├── RoomService.java
+                │   ├── RoomServiceImpl.java
+                │   ├── UserService.java
+                │   └── UserServiceImpl.java
+                ├── utils/
+                │   └── JwtTokenUtils.java
+                └── Main.java
+resources/
+└── application.properties
+target/
+Pom.xml
+
+
+---
+
+### Dependencies to Install (for VS Code)
+1. Maven for Java
+2. Spring Boot Extension Pack
+3. Spring Boot Tools
+4. Spring Initializr Java Support
+5. Spring Boot Dashboard
+
+### Running the Maven Project
+1. Build the Maven project using:
+   mvn clean mvn install
+2. Execute the application:
+   cd "c:\path\to\project" java -jar target/eventmanagement.jar
+Or, right-click on `Main.java` in VS Code and select **Run Java**.
+
+---
+
+## Running the Flask Backend
+The Python backend is built using Flask.
+
+### Prerequisites
+1. Python installed on your machine.
+2. Create a virtual environment and install dependencies.
+
+### Steps to Run
+1. Navigate to the Flask project folder:
+   cd path/to/flask_project
+2. Set up a virtual environment:
+   python -m venv venv .\venv\Scripts\Activate
+3. Install dependencies:
+   pip install Flask Flask-WTF WTForms Flask-SQLAlchemy flask-login requests
+4. Run the Flask application:
+   python app.py
+5. Once the server starts, access the application at:
+[http://127.0.0.1:5000](http://127.0.0.1:5000)
+
+---
+
+## Important Notes
+1. Always start the Maven project (Java) before running the Flask backend (Python).
+2. Ensure directory structures and paths match the configurations to avoid errors.
+
