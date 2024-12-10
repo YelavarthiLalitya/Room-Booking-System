@@ -19,42 +19,42 @@ The main application is built as a Maven Project and uses Spring Boot as its fra
    - Choose a directory for the Maven project and note the path for future reference.
 
 ---
-
 ## Project Directory Structure
-.vscode/
-src/
-└── main/
-    └── java/
-        └── com/
-            └── eventmanagement/
-                ├── controller/
-                │   ├── EventController.java
-                │   ├── RoomController.java
-                │   └── UserController.java
-                ├── model/
-                │   ├── Event.java
-                │   ├── Manage.java
-                │   ├── Role.java
-                │   ├── RoomInfo.java
-                │   └── User.java
-                ├── repository/
-                │   ├── EventRepository.java
-                │   ├── RoomRepository.java
-                │   └── UserRepository.java
-                ├── service/
-                │   ├── EventService.java
-                │   ├── EventServiceImpl.java
-                │   ├── RoomService.java
-                │   ├── RoomServiceImpl.java
-                │   ├── UserService.java
-                │   └── UserServiceImpl.java
-                ├── utils/
-                │   └── JwtTokenUtils.java
-                └── Main.java
-resources/
-└── application.properties
-target/
-Pom.xml
+
+- .vscode/
+- src/
+  - main/
+    - java/
+      - com/
+        - eventmanagement/
+          - controller/
+            - EventController.java
+            - RoomController.java
+            - UserController.java
+          - model/
+            - Event.java
+            - Manage.java
+            - Role.java
+            - RoomInfo.java
+            - User.java
+          - repository/
+            - EventRepository.java
+            - RoomRepository.java
+            - UserRepository.java
+          - service/
+            - EventService.java
+            - EventServiceImpl.java
+            - RoomService.java
+            - RoomServiceImpl.java
+            - UserService.java
+            - UserServiceImpl.java
+          - utils/
+            - JwtTokenUtils.java
+          - Main.java
+- resources/
+  - application.properties
+- target/
+- Pom.xml
 
 
 ---
